@@ -1,42 +1,66 @@
 import Express from "express"
 import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
-import type { Request, Response } from "express"  
-
+import type { Request, Response } from "express"
+import { ValidateDatos } from "../entities/dto/dtodni.js"
 
 export class ControllerUsuario {
     constructor(private readonly ServiciosSenior: ServiciosEstudiante) { }
     BuscarDatos = async (req: Request, res: Response) => {
         const { dni } = req.body
-        try {
-            let EncontrarData = await this.ServiciosSenior.encontarElusaurio(dni)
-            return res.send(EncontrarData)
+        let validaciones = ValidateDatos(dni)
+        if (Object.values(validaciones).length > 0) {
+            return res.send({
+                msg: validaciones
+            })
+        } else {
+            try {
+                let EncontrarData = await this.ServiciosSenior.encontarElusaurio(dni)
+                return res.send(EncontrarData)
 
-        } catch (error) {
-            console.log(error)
-            return error
+            } catch (error) {
+                if (error instanceof Error) {
+
+                    if (error.message === "no esta el usuario") {
+                        res.status(400).json({ error: "usuario no encontrado" })
+                    } else {
+                        res.status(500).json({ error: "Error interno del servidor" })
+                    }
+                }
+            }
         }
     }
-    
     async createUsuario() {
+        
     }
     ChangueVoto = async (req: Request, res: Response) => {
         try {
-            await this.ServiciosSenior.AddVoto(req.body)
+            const { dni } = req.body
+            let validaciones = ValidateDatos(dni)
+            console.log(validaciones)
+
+            await this.ServiciosSenior.AddVoto(dni)
             return res.send({ msg: 'voto añadidio' })
         } catch (error) {
-            return error
+
+            if (error instanceof Error) {
+
+                if (error.message === "ya votastes") {
+                    res.status(400).json({ error: "El estudiante ya emitió su voto" })
+                } else {
+                    res.status(500).json({ error: "Error interno del servidor" })
+                }
+            }
         }
     }
     finall = async (req: Request, res: Response) => {
-        console.log('mogollon Oosrio')
+        const { dni } = req.body
+        let validaciones = ValidateDatos(dni)
+        console.log(validaciones)
         try {
             let datos = await this.ServiciosSenior.Finall()
             return res.send(datos)
         } catch (error) {
-
             return error
-
         }
-
     }
 }

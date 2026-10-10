@@ -16,8 +16,6 @@ export class ServiciosEstudiante {
     }
 
     async encontarElusaurio(dtoDni: string): Promise<Estudiante | null> {
-
-        console.log('mogollon Osorio')
         let datos = await AppDataSource.getRepository(Estudiante).findOne({
             where: {
                 dni: dtoDni
@@ -31,7 +29,8 @@ export class ServiciosEstudiante {
     
     async AddVoto(dtoDni: string) {
 
-        let datos = await this.encontarElusaurio(dtoDni)
+        let datos = await this.encontarElusaurio(dtoDni)    
+        if ( datos?.voto === 1) throw new Error('ya votastes')
         if (!datos) return
         datos.voto += 1
         return await AppDataSource.manager.save(datos)
@@ -39,7 +38,7 @@ export class ServiciosEstudiante {
     }
 
     Finall = async () => {
-        console.log('mogollon Osorio')
+
         return await AppDataSource.getRepository(Estudiante).find()
 
     }
