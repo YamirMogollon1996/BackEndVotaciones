@@ -12,7 +12,7 @@ const options: swaggerJSDoc.Options = {
       description: "Documentación de la API con Swagger",
     },
   },
-  // Aquí defines dónde buscar las anotaciones
+
   apis: ["./src/**/*.ts"], 
 };
 

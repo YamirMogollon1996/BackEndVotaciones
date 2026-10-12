@@ -23,6 +23,7 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    // verbatimModuleSyntax:
 
     // Style Options
     // "noImplicitReturns": true,
@@ -33,12 +34,13 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "experimentalDecorators":true,
+    "experimentalDecorators":true, 
+    "emitDecoratorMetadata":true,
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
+    // "isolatedModules": true,
+    // "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
   }

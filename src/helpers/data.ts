@@ -1,5 +1,5 @@
 export interface Ivotaciones {
-
+  
   dni: string,
   nombre: string,
   apellido_paterno: string,
@@ -8,6 +8,7 @@ export interface Ivotaciones {
   seccion: string
   voto?: number   
 }
+
 
 export const alumnos: Ivotaciones[] = [
   {

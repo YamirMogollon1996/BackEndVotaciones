@@ -1,14 +1,20 @@
-import { DataSource } from "typeorm"
+import { DataSource, Entity } from "typeorm"
 import { Estudiante } from "../Estudiante/entities/Entities.js"
+import { Candidato } from "../Candidatos/Entities/Entitites.js"
+// import path from "path"
+// const uploadData = path.join(process.cwd(), 'src', 'migraciones/**/*{.js,.ts}')
+
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: process.env.DB_HOST || "localhost",
-    port: Number(process.env.DB_PORT) || 3306,
-    username: process.env.DB_NAME || "root",
-    password: process.env.DB_PASS || "12345678",
-    database: process.env.DATABASE || "col",
-    entities: [Estudiante],
-    synchronize: true,  
-    
+    host: "monorail.proxy.rlwy.net",
+    port: 23401,
+    username: "root",
+    password: "vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO",
+    database: "railway",
+    entities: [Estudiante, Candidato],
+    synchronize: false,
+    migrationsRun: true,
+    migrations: ["src/migraciones/**/*{.ts,.js}"], 
+
 });

@@ -1,12 +1,8 @@
 import { PrimaryGeneratedColumn, Column, Entity } from "typeorm"
-
 @Entity()
 export class Estudiante {
-
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id!: number;
-
-
     @Column({ type: "varchar", length: 8, unique: true })
     dni!: string;
 
@@ -27,7 +23,5 @@ export class Estudiante {
 
     @Column({ type: "int", default: 0 })
     voto!: number;
-
-
 
 }

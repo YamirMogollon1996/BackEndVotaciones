@@ -30,7 +30,7 @@ export class ControllerUsuario {
         }
     }
     async createUsuario() {
-        
+
     }
     ChangueVoto = async (req: Request, res: Response) => {
         try {
@@ -53,11 +53,12 @@ export class ControllerUsuario {
         }
     }
     finall = async (req: Request, res: Response) => {
-        const { dni } = req.body
-        let validaciones = ValidateDatos(dni)
-        console.log(validaciones)
-        try {
+
+        
+        console.log('mogollon')
+        try { 
             let datos = await this.ServiciosSenior.Finall()
+            console.log( datos)
             return res.send(datos)
         } catch (error) {
             return error
