@@ -6,7 +6,6 @@ import { alumnos } from "../src/helpers/data.js";
 import { appRouter } from "./Estudiante/routes/routes.js";
 import { swaggerDocs } from "./swager.js";
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js";
-import { Await } from "react-router-dom";
 import dotenv from "dotenv";
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
