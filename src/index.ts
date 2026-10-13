@@ -4,15 +4,18 @@ import path from "path"
 
 import { AppDataSource } from "./db/db.js"
 import { Estudiante } from "./Estudiante/entities/Entities.js"
-import { alumnos } from "../src/helpers/data.js"
-import type { Ivotaciones } from "../src/helpers/data.js"
+// import { alumnos } from "../src/helpers/data.js"
+// import type { Ivotaciones } from "../src/helpers/data.js"
 import { appRouter } from "./Estudiante/routes/routes.js"
 import { swaggerDocs } from "./swager.js"
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js"
-import dotenv from "dotenv"
-// mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
+import dotenv from "dotenv" 
+
 
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
+// mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway 
+
+
 dotenv.config()
 export class Boostrap {
     public app!: Application
