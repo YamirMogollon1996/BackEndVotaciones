@@ -6,4 +6,3 @@ export const ValidateDatos = (dni) => {
         return ['Error recuerda minimo 8 digitos'];
     return true;
 };
-//# sourceMappingURL=dtodni.js.map

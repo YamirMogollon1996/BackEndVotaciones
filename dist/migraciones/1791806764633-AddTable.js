@@ -7,4 +7,3 @@ export class AddTable1791806764633 {
         await queryRunner.query(`DROP TABLE \`candidato\``);
     }
 }
-//# sourceMappingURL=1791806764633-AddTable.js.map

@@ -61,4 +61,3 @@ export default class ControllerCandidatos {
         // return res.status(204).send();
     };
 }
-//# sourceMappingURL=ControllerCandidatos.js.map

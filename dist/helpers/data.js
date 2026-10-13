@@ -3120,4 +3120,3 @@ export const alumnos = [
         "seccion": "C"
     }
 ];
-//# sourceMappingURL=data.js.map

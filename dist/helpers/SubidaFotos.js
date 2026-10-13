@@ -15,4 +15,3 @@ const SubidaFotos = diskStorage({
     }
 });
 export const multerDatos = multer({ storage: SubidaFotos });
-//# sourceMappingURL=SubidaFotos.js.map

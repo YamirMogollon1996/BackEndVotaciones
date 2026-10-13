@@ -54,4 +54,3 @@ Estudiante = __decorate([
     Entity()
 ], Estudiante);
 export { Estudiante };
-//# sourceMappingURL=Entities.js.map

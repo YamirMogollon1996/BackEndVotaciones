@@ -1,4 +1,3 @@
-import { Await } from "react-router-dom";
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
@@ -32,4 +31,3 @@ export class SerivicosCandidado {
         throw new Error("Method not implemented.");
     }
 }
-//# sourceMappingURL=ServicioCandidatos.js.map

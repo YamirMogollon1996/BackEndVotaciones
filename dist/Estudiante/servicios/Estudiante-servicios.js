@@ -20,7 +20,6 @@ export class ServiciosEstudiante {
         });
         if (!datos)
             throw new Error('no esta el usuario');
-        console.log(datos);
         return datos;
     }
     async AddVoto(dtoDni) {
@@ -36,4 +35,3 @@ export class ServiciosEstudiante {
         return await AppDataSource.getRepository(Estudiante).find();
     };
 }
-//# sourceMappingURL=Estudiante-servicios.js.map

@@ -33,4 +33,3 @@ export class ModeloCandidto {
         this.activo = false;
     }
 }
-//# sourceMappingURL=ModeloCandidadto.js.map

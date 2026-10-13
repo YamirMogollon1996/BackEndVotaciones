@@ -1,7 +1,7 @@
 import express from "express"
 import type { Application } from "express"
 import path from "path"
-import dotenv from "dotenv"
+
 import { AppDataSource } from "./db/db.js"
 import { Estudiante } from "./Estudiante/entities/Entities.js"
 import { alumnos } from "../src/helpers/data.js"
@@ -10,7 +10,7 @@ import { appRouter } from "./Estudiante/routes/routes.js"
 import { swaggerDocs } from "./swager.js"
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js"
 import { Await } from "react-router-dom"
-
+import dotenv from "dotenv"
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
 
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway

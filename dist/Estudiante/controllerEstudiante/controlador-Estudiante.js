@@ -64,4 +64,3 @@ export class ControllerUsuario {
         }
     };
 }
-//# sourceMappingURL=controlador-Estudiante.js.map

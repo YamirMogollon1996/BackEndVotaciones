@@ -7,4 +7,3 @@ import { multerDatos } from "../../helpers/SubidaFotos.js";
 ExpressRouter.post('/create', multerDatos.single('foto'), RouterCandidatos.crearCandidato);
 ExpressRouter.get('/todos', RouterCandidatos.obtenerCandidatos);
 ExpressRouter.post('/find', RouterCandidatos.obtenerCandidatoPorId);
-//# sourceMappingURL=CandidatoRutas.js.map

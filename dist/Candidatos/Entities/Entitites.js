@@ -59,4 +59,3 @@ Candidato = __decorate([
     Entity()
 ], Candidato);
 export { Candidato };
-//# sourceMappingURL=Entitites.js.map

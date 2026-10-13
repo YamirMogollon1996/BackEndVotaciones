@@ -1,4 +1,4 @@
-import { Await } from "react-router-dom";
+
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js"
@@ -37,8 +37,6 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         await AppDataSource.manager.save(Encontrado)
         return Encontrado
     }
-
-
     delete(id: number): boolean | Promise<boolean> {
         throw new Error("Method not implemented.");
     }

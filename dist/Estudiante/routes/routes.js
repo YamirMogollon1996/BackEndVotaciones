@@ -43,4 +43,3 @@ appRouter.get('/todos', UserController.finall);
  */
 appRouter.post('/addVoto', UserController.ChangueVoto);
 export { appRouter };
-//# sourceMappingURL=routes.js.map

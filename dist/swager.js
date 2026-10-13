@@ -16,4 +16,3 @@ export function swaggerDocs(app, port) {
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     console.log(`📑 Swagger listo en http://localhost:${port}/api-docs`);
 }
-//# sourceMappingURL=swager.js.map

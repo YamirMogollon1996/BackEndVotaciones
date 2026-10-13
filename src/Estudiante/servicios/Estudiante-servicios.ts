@@ -22,15 +22,14 @@ export class ServiciosEstudiante {
             }
         })
         if (!datos) throw new Error('no esta el usuario')
-        console.log(datos)
         return datos
-    }  
+    }
 
-    
+
     async AddVoto(dtoDni: string) {
 
-        let datos = await this.encontarElusaurio(dtoDni)    
-        if ( datos?.voto === 1) throw new Error('ya votastes')
+        let datos = await this.encontarElusaurio(dtoDni)
+        if (datos?.voto === 1) throw new Error('ya votastes')
         if (!datos) return
         datos.voto += 1
         return await AppDataSource.manager.save(datos)
