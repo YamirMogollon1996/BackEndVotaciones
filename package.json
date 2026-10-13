@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx watch src/main.ts",
+    "dev": "tsx watch src/main.ts",
     "typeorm": "typeorm-ts-node-esm -d ./src/db/db.ts",
     "migration:generate": "npm run typeorm migration:generate",
     "migration:run": "npm run typeorm migration:run",

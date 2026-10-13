@@ -26,6 +26,8 @@ export class Boostrap {
         this.app.use(appRouter)
         this.app.use( ExpressRouter)
 
+
+        
         swaggerDocs(this.app, this.port)
         this.InicarPuerto()
     }

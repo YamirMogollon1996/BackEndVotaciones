@@ -1,0 +1,1 @@
+{"version":3,"file":"Entities.d.ts","sourceRoot":"","sources":["../../../src/Estudiante/entities/Entities.ts"],"names":[],"mappings":"AACA,qBACa,UAAU;IAEnB,EAAE,EAAG,MAAM,CAAC;IAEZ,GAAG,EAAG,MAAM,CAAC;IAGb,MAAM,EAAG,MAAM,CAAC;IAGhB,gBAAgB,EAAG,MAAM,CAAC;IAG1B,gBAAgB,EAAG,MAAM,CAAC;IAG1B,KAAK,EAAG,MAAM,CAAC;IAGf,OAAO,EAAG,MAAM,CAAC;IAGjB,IAAI,EAAG,MAAM,CAAC;CAEjB"}

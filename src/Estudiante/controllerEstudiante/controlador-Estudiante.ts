@@ -2,7 +2,6 @@ import Express from "express"
 import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
 import type { Request, Response } from "express"
 import { ValidateDatos } from "../entities/dto/dtodni.js"
-
 export class ControllerUsuario {
     constructor(private readonly ServiciosSenior: ServiciosEstudiante) { }
     BuscarDatos = async (req: Request, res: Response) => {
@@ -53,8 +52,6 @@ export class ControllerUsuario {
         }
     }
     finall = async (req: Request, res: Response) => {
-
-        
         console.log('mogollon')
         try { 
             let datos = await this.ServiciosSenior.Finall()

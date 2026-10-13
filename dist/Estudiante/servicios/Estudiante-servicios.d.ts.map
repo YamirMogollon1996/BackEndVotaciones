@@ -1,0 +1,1 @@
+{"version":3,"file":"Estudiante-servicios.d.ts","sourceRoot":"","sources":["../../../src/Estudiante/servicios/Estudiante-servicios.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,UAAU,EAAE,MAAM,yBAAyB,CAAC;AAGrD,qBAAa,mBAAmB;IACtB,MAAM,CAAC,OAAO,EAAE,UAAU;IAY1B,iBAAiB,CAAC,MAAM,EAAE,MAAM,GAAG,OAAO,CAAC,UAAU,GAAG,IAAI,CAAC;IAY7D,OAAO,CAAC,MAAM,EAAE,MAAM;IAU5B,MAAM,8BAIL;CAEJ"}
