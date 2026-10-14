@@ -9,12 +9,15 @@ import { Estudiante } from "./Estudiante/entities/Entities.js"
 import { appRouter } from "./Estudiante/routes/routes.js"
 import { swaggerDocs } from "./swager.js"
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js"
-import dotenv from "dotenv" 
+import dotenv from "dotenv"
+import cors from 'cors'
 
 
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
 // mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway 
 
+
+// backendvotaciones-production.up.railway.app
 
 dotenv.config()
 export class Boostrap {
@@ -26,10 +29,13 @@ export class Boostrap {
         this.app.use(express.urlencoded({ extended: true }))
         this.app.use("/uploads", express.static(path.join(process.cwd(), "src", "uploads")))
         this.app.use(appRouter)
-        this.app.use( ExpressRouter)
+        this.app.use(cors({
+            methods: ["GET", "POST", "PUT", "DELETE"],
+        }))
+        this.app.use(ExpressRouter)
 
 
-        
+
         swaggerDocs(this.app, this.port)
         this.InicarPuerto()
     }
@@ -38,13 +44,13 @@ export class Boostrap {
             await this.app.listen(this.port, () => {
                 console.log('Corriendo en el puerto ', this.port)
             })
-         AppDataSource.initialize().then(() =>{
+            AppDataSource.initialize().then(() => {
                 console.log('base de datos inciqzada')
 
-         }).catch(()=>{
-            console.log('error al iinciar')
-         })
-            console.log('Base de datos Conectada!!!!!!!!!!') 
+            }).catch(() => {
+                console.log('error al iinciar')
+            })
+            console.log('Base de datos Conectada!!!!!!!!!!')
 
 
 
