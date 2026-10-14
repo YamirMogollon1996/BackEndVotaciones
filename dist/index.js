@@ -17,12 +17,12 @@ export class Boostrap {
     app;
     port = 4002;
     constructor() {
+        this.app.use(cors());
         this.app = express();
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use("/uploads", express.static(path.join(process.cwd(), "src", "uploads")));
         this.app.use(appRouter);
-        this.app.use(cors());
         this.app.use(ExpressRouter);
         swaggerDocs(this.app, this.port);
         this.InicarPuerto();
