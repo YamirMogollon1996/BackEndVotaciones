@@ -1,7 +1,6 @@
 import express from "express"
 import type { Application } from "express"
 import path from "path"
-
 import { AppDataSource } from "./db/db.js"
 import { Estudiante } from "./Estudiante/entities/Entities.js"
 // import { alumnos } from "../src/helpers/data.js"
@@ -22,8 +21,8 @@ export class Boostrap {
     public app!: Application
     public port: number = 4002
     constructor() {
-        this.app.use(cors())
         this.app = express()
+        this.app.use(cors())
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: true }))
         this.app.use("/uploads", express.static(path.join(process.cwd(), "src", "uploads")))
@@ -45,9 +44,6 @@ export class Boostrap {
                 console.log('error al iinciar')
             })
             console.log('Base de datos Conectada!!!!!!!!!!')
-
-
-
         } catch (error) {
             console.log(error)
 
