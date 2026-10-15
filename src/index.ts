@@ -11,11 +11,6 @@ import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js"
 import dotenv from "dotenv"
 import cors from 'cors'
 
-
-// mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway
-// mysql://root:vHpekQFzcAcuRLKAOTTdopkQuFnPKQxO@monorail.proxy.rlwy.net:23401/railway 
-// backendvotaciones-production.up.railway.app
-
 dotenv.config()
 export class Boostrap {
     public app!: Application
