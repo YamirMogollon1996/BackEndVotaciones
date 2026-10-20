@@ -2,6 +2,8 @@
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js"
+import Cloudbinary from "cloudinary"
+
 
 export interface RepositorioCandidatos<T> {
     create(datos:  ModeloCandidto): void
@@ -10,7 +12,8 @@ export interface RepositorioCandidatos<T> {
     update(id: number, datos: Partial<T>): void
     delete(id: number): boolean | Promise<boolean>;
 }
-export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
+export class SerivicosCandidado implements RepositorioCandidatos<Candidato> { 
+
     async create(datos: ModeloCandidto) { 
         console.log('mogollon osorio en el serivico ')
         let RepositorioCan = AppDataSource.getRepository(Candidato)
