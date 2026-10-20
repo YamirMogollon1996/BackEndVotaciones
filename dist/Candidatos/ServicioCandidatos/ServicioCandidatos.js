@@ -3,8 +3,16 @@ import { Candidato } from "../Entities/Entitites.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 export class SerivicosCandidado {
     async create(datos) {
+        console.log('mogollon osorio en el serivico ');
         let RepositorioCan = AppDataSource.getRepository(Candidato);
-        let da = RepositorioCan.create(datos);
+        let da = RepositorioCan.create({
+            activo: datos.activo,
+            apellido: datos.apellido,
+            foto: datos.foto ?? '',
+            nombre: datos.nombre,
+            partido: datos.partido,
+            voto: datos.voto,
+        });
         await RepositorioCan.save(da);
     }
     async findAll() {

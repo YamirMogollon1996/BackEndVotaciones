@@ -35,6 +35,7 @@ export class ControllerUsuario {
     }
     ChangueVoto = async (req, res) => {
         try {
+            console.log('mogollon');
             const { dni } = req.body;
             let validaciones = ValidateDatos(dni);
             console.log(validaciones);

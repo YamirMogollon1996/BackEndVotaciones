@@ -4,18 +4,29 @@ import { Candidato } from "../Entities/Entitites.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js"
 
 export interface RepositorioCandidatos<T> {
-    create(datos: T): void
+    create(datos:  ModeloCandidto): void
     findAll(): T[] | Promise<T[]>;
     findById(id: number): Promise<T | null>;
     update(id: number, datos: Partial<T>): void
     delete(id: number): boolean | Promise<boolean>;
 }
 export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
-    async create(datos: Candidato) {
+    async create(datos: ModeloCandidto) { 
+        console.log('mogollon osorio en el serivico ')
         let RepositorioCan = AppDataSource.getRepository(Candidato)
-        let da = RepositorioCan.create(datos)
+        let da = RepositorioCan.create({
+            activo :  datos.activo ,
+            apellido :  datos.apellido , 
+            foto :  datos.foto ?? '' , 
+            nombre :  datos.nombre , 
+            partido:  datos.partido ,
+            voto :  datos.voto ,
+        })
+
         await RepositorioCan.save(da)
-    }
+    
+    } 
+
     async findAll(): Promise<Candidato[]> {
         let datos = await AppDataSource.getRepository(Candidato).find()
         return datos

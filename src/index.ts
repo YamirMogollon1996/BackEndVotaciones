@@ -23,7 +23,7 @@ export class Boostrap {
         this.app.use("/uploads", express.static(path.join(process.cwd(), "src", "uploads")))
         this.app.use(appRouter)
        
-        this.app.use(ExpressRouter)
+        this.app.use('/candidato' , ExpressRouter)
         swaggerDocs(this.app, this.port)
         this.InicarPuerto()
     }

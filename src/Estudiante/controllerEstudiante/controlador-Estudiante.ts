@@ -1,12 +1,15 @@
 import Express from "express"
 import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
 import type { Request, Response } from "express"
-import { ValidateDatos } from "../entities/dto/dtodni.js"
+import { ValidateDatos } from "../entities/dto/dtodni.js" 
+
+
 export class ControllerUsuario {
     constructor(private readonly ServiciosSenior: ServiciosEstudiante) { }
     BuscarDatos = async (req: Request, res: Response) => {
-        const { dni } = req.body
-        let validaciones = ValidateDatos(dni)
+        const { dni } = req.body   
+        
+        let validaciones = ValidateDatos(dni)        
         if (Object.values(validaciones).length > 0) {
             return res.send({
                 msg: validaciones
@@ -18,7 +21,6 @@ export class ControllerUsuario {
 
             } catch (error) {
                 if (error instanceof Error) {
-
                     if (error.message === "no esta el usuario") {
                         res.status(400).json({ error: "usuario no encontrado" })
                     } else {
@@ -29,10 +31,10 @@ export class ControllerUsuario {
         }
     }
     async createUsuario() {
-
     }
     ChangueVoto = async (req: Request, res: Response) => {
-        try {
+        try {  
+            console.log('mogollon')
             const { dni } = req.body
             let validaciones = ValidateDatos(dni)
             console.log(validaciones)
