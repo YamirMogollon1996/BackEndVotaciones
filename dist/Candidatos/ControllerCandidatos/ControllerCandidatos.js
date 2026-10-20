@@ -26,6 +26,7 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req, res) => {
+        console.log(req.body);
         try {
             let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.voto, req.body.activo);
             console.log(modeloData);
