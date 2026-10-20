@@ -3,7 +3,7 @@ import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 export default class ControllerCandidatos {
 
-    
+
     constructor(private readonly candidatoService: SerivicosCandidado) { }
     obtenerCandidatos = async (req: Request, res: Response) => {
         console.log('mogollon osorioe n el obtener Datos')
@@ -23,7 +23,9 @@ export default class ControllerCandidatos {
             console.log(error)
         }
     };
-    crearCandidato = async (req: Request, res: Response) => {
+    crearCandidato = async (req: Request, res: Response) => {  
+
+        console.log( req.body)
         try {
             let modeloData = new ModeloCandidto(
                 req.body.nombre,
