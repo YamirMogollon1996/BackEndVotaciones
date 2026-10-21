@@ -16,8 +16,14 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         console.log('mogollon osorio en el serivico ')
         try {
 
-            let resultado = await CloudbinaryInstance.uploader.upload(path!, { folder: 'my_app_images' })
+            let resultado = await CloudbinaryInstance.uploader.upload(path!,
+                     { folder: 'my_app_images',transformation: { 
+                        width:500 , 
+                        height: 500 , 
+                        crop:'fill'
+                     } }  
 
+            )
             let RepositorioCan = AppDataSource.getRepository(Candidato)
             let da = RepositorioCan.create({
                 activo: datos.activo,

@@ -30,7 +30,7 @@ export default class ControllerCandidatos {
         try {
             let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.voto, req.body.activo);
             console.log(modeloData);
-            await this.candidatoService.create(modeloData);
+            await this.candidatoService.create(modeloData, req.file?.path);
             return res.send({
                 msg: 'se creo el candidadto'
             });
@@ -41,31 +41,6 @@ export default class ControllerCandidatos {
             }
             return res.status(500).send('Error inesperado');
         }
-        // try { 
-        //     let modeloCantidad =  new ModeloCandidto(
-        //                 req.body.nombre , 
-        //                 req.body.apellido ,
-        //                 req.body.partido ,
-        //                 req.file?.path ,
-        //                 req.body.voto ,
-        //                 req.body.activo
-        //     )
-        //     await this.candidatoService.create({
-        //         nombre:  req.body.nombre ,
-        //         apellido:req.body.apellido, 
-        //         partido :  req.body.partido ,
-        //         foto:  req.file?.path!,
-        //         activo:  req.body.activo ,
-        //         voto :  req.body.voto
-        //     } as any ) 
-        //     return res.send({ msg: 'creado',  })
-        // } catch (error) {  
-        //      console.log( error)
-        //     if (error instanceof Error) {
-        //         return res.status(400).json({ message: error.message });
-        //     }
-        //     return res.status(500).send('Error inesperado');
-        // }
     };
     actualizarCandidato = async (req, res) => {
         const { id } = req.params;

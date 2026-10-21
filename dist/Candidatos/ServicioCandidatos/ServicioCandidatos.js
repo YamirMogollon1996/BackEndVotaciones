@@ -1,19 +1,30 @@
+import { CloudbinaryInstance } from "../../Cloudbinary.js";
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 export class SerivicosCandidado {
-    async create(datos) {
+    async create(datos, path) {
         console.log('mogollon osorio en el serivico ');
-        let RepositorioCan = AppDataSource.getRepository(Candidato);
-        let da = RepositorioCan.create({
-            activo: datos.activo,
-            apellido: datos.apellido,
-            foto: datos.foto ?? '',
-            nombre: datos.nombre,
-            partido: datos.partido,
-            voto: datos.voto,
-        });
-        await RepositorioCan.save(da);
+        try {
+            let resultado = await CloudbinaryInstance.uploader.upload(path, { folder: 'my_app_images', transformation: {
+                    width: 500,
+                    height: 500,
+                    crop: 'fill'
+                } });
+            let RepositorioCan = AppDataSource.getRepository(Candidato);
+            let da = RepositorioCan.create({
+                activo: datos.activo,
+                apellido: datos.apellido,
+                foto: resultado.secure_url,
+                nombre: datos.nombre,
+                partido: datos.partido,
+                voto: datos.voto,
+            });
+            await RepositorioCan.save(da);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
     async findAll() {
         let datos = await AppDataSource.getRepository(Candidato).find();
