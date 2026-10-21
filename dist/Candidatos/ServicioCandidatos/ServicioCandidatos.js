@@ -4,7 +4,6 @@ import { Candidato } from "../Entities/Entitites.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 export class SerivicosCandidado {
     async create(datos, path) {
-        console.log('mogollon osorio en el serivico ');
         try {
             let resultado = await CloudbinaryInstance.uploader.upload(path, { folder: 'my_app_images', transformation: {
                     width: 500,

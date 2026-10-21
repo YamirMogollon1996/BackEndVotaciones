@@ -26,10 +26,10 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req, res) => {
-        console.log(req.body);
+        // console.log( req.body)
         try {
             let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.voto, req.body.activo);
-            console.log(modeloData);
+            // console.log( modeloData)  
             await this.candidatoService.create(modeloData, req.file?.path);
             return res.send({
                 msg: 'se creo el candidadto'

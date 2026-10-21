@@ -11,9 +11,7 @@ export interface RepositorioCandidatos<T> {
     delete(id: number): boolean | Promise<boolean>;
 }
 export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
-
     async create(datos: ModeloCandidto, path?: string) {
-        console.log('mogollon osorio en el serivico ')
         try {
 
             let resultado = await CloudbinaryInstance.uploader.upload(path!,

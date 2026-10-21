@@ -30,7 +30,6 @@ export class Boostrap {
                 console.log('Corriendo en el puerto ', this.port);
             });
             AppDataSource.initialize().then(() => {
-                console.log('base de datos inciqzada');
             }).catch(() => {
                 console.log('error al iinciar');
             });
