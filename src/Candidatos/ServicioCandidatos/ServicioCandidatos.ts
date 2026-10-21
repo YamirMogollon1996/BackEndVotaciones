@@ -1,35 +1,38 @@
 
+import { CloudbinaryInstance } from "../../Cloudbinary.js";
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js"
-import Cloudbinary from "cloudinary"
-
-
 export interface RepositorioCandidatos<T> {
-    create(datos:  ModeloCandidto): void
+    create(datos: ModeloCandidto): void
     findAll(): T[] | Promise<T[]>;
     findById(id: number): Promise<T | null>;
     update(id: number, datos: Partial<T>): void
     delete(id: number): boolean | Promise<boolean>;
 }
-export class SerivicosCandidado implements RepositorioCandidatos<Candidato> { 
+export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
 
-    async create(datos: ModeloCandidto) { 
+    async create(datos: ModeloCandidto, path?: string) {
         console.log('mogollon osorio en el serivico ')
-        let RepositorioCan = AppDataSource.getRepository(Candidato)
-        let da = RepositorioCan.create({
-            activo :  datos.activo ,
-            apellido :  datos.apellido , 
-            foto :  datos.foto ?? '' , 
-            nombre :  datos.nombre , 
-            partido:  datos.partido ,
-            voto :  datos.voto ,
-        })
+        try {
 
-        await RepositorioCan.save(da)
-    
-    } 
+            let resultado = await CloudbinaryInstance.uploader.upload(path!, { folder: 'my_app_images' })
 
+            let RepositorioCan = AppDataSource.getRepository(Candidato)
+            let da = RepositorioCan.create({
+                activo: datos.activo,
+                apellido: datos.apellido,
+                foto: resultado.secure_url,
+                nombre: datos.nombre,
+                partido: datos.partido,
+                voto: datos.voto,
+            })
+
+            await RepositorioCan.save(da)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     async findAll(): Promise<Candidato[]> {
         let datos = await AppDataSource.getRepository(Candidato).find()
         return datos
@@ -43,7 +46,6 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         return Repo
     }
     async update(id: number, datos?: Partial<Candidato>):
-
         Promise<Candidato | Promise<Candidato | null>> {
         let Encontrado = await this.findById(id)
         if (!Encontrado) return null

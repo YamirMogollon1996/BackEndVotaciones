@@ -24,7 +24,6 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req: Request, res: Response) => {  
-
         console.log( req.body)
         try {
             let modeloData = new ModeloCandidto(
@@ -34,48 +33,22 @@ export default class ControllerCandidatos {
                 req.file?.path,
                 req.body.voto,
                 req.body.activo
-            )
-            console.log(modeloData)
-            await this.candidatoService.create(modeloData)
+            )  
+            console.log( modeloData)  
+
+
+            await this.candidatoService.create( modeloData ,req.file?.path!)
             return res.send({
                 msg: 'se creo el candidadto'
             })
+
+
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(400).json({ message: error.message });
             }
             return res.status(500).send('Error inesperado');
         }
-
-        // try { 
-        //     let modeloCantidad =  new ModeloCandidto(
-
-        //                 req.body.nombre , 
-        //                 req.body.apellido ,
-        //                 req.body.partido ,
-        //                 req.file?.path ,
-        //                 req.body.voto ,
-        //                 req.body.activo
-
-        //     )
-        //     await this.candidatoService.create({
-        //         nombre:  req.body.nombre ,
-        //         apellido:req.body.apellido, 
-        //         partido :  req.body.partido ,
-        //         foto:  req.file?.path!,
-        //         activo:  req.body.activo ,
-        //         voto :  req.body.voto
-        //     } as any ) 
-        //     return res.send({ msg: 'creado',  })
-
-        // } catch (error) {  
-        //      console.log( error)
-        //     if (error instanceof Error) {
-        //         return res.status(400).json({ message: error.message });
-        //     }
-        //     return res.status(500).send('Error inesperado');
-
-        // }
     }
 
 
