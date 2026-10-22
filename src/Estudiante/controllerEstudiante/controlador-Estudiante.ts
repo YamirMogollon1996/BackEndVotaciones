@@ -3,12 +3,11 @@ import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
 import type { Request, Response } from "express"
 import { ValidateDatos } from "../entities/dto/dtodni.js" 
 
-
 export class ControllerUsuario {
+    
     constructor(private readonly ServiciosSenior: ServiciosEstudiante) { }
     BuscarDatos = async (req: Request, res: Response) => {
-        const { dni } = req.body   
-        
+        const { dni } = req.body       
         let validaciones = ValidateDatos(dni)        
         if (Object.values(validaciones).length > 0) {
             return res.send({
@@ -30,8 +29,12 @@ export class ControllerUsuario {
             }
         }
     }
+
+
     async createUsuario() {
+    
     }
+
     ChangueVoto = async (req: Request, res: Response) => {
         try {  
        

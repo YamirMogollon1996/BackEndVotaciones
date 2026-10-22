@@ -15,13 +15,14 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         try {
 
             let resultado = await CloudbinaryInstance.uploader.upload(path!,
-                     { folder: 'my_app_images',transformation: { 
+                     { folder: 'my_app_images',
+                        transformation: { 
                         width:500 , 
                         height: 500 , 
                         crop:'fill'
                      } }  
-
             )
+            
             let RepositorioCan = AppDataSource.getRepository(Candidato)
             let da = RepositorioCan.create({
                 activo: datos.activo,

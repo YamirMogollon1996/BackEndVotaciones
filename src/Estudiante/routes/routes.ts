@@ -4,7 +4,7 @@ import { ControllerUsuario } from "../controllerEstudiante/controlador-Estudiant
 import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
 let MyServicio = new ServiciosEstudiante()
 export let UserController = new ControllerUsuario(MyServicio)
-appRouter.get('/', UserController.createUsuario)    
+appRouter.get('/', UserController.createUsuario)
 appRouter.post('/find', UserController.BuscarDatos)
 /**
  * @openapi
