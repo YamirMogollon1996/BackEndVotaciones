@@ -1,5 +1,7 @@
 import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
+import { CloudbinaryInstance } from "../../Cloudbinary.js";
+import { SubirImagen } from "../helper/SubirImagen.js";
 export default class ControllerCandidatos {
     candidatoService;
     constructor(candidatoService) {
@@ -26,13 +28,15 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req, res) => {
-        // console.log( req.body)
         try {
+            const uploader = await SubirImagen(req.file?.buffer);
+            if (!req.file)
+                throw new Error('necesita enviar una imagen ');
             let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.voto, req.body.activo);
-            // console.log( modeloData)  
-            await this.candidatoService.create(modeloData, req.file?.path);
+            console.log(modeloData);
+            await this.candidatoService.create(modeloData, uploader.secure_url);
             return res.send({
-                msg: 'se creo el candidadto'
+                msg: 'se creo el candidadto con foto'
             });
         }
         catch (error) {

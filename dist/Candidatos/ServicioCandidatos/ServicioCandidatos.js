@@ -5,17 +5,11 @@ import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 export class SerivicosCandidado {
     async create(datos, path) {
         try {
-            let resultado = await CloudbinaryInstance.uploader.upload(path, { folder: 'my_app_images',
-                transformation: {
-                    width: 500,
-                    height: 500,
-                    crop: 'fill'
-                } });
             let RepositorioCan = AppDataSource.getRepository(Candidato);
             let da = RepositorioCan.create({
                 activo: datos.activo,
                 apellido: datos.apellido,
-                foto: resultado.secure_url,
+                foto: path,
                 nombre: datos.nombre,
                 partido: datos.partido,
                 voto: datos.voto,
