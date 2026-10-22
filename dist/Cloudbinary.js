@@ -1,7 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-// 443576563381214  
-// Ahbf7BgeFqi9zFNtRs5c3QcRNHo
-// mediaflows_b4f96945-46e8-42ce-8ba5-2bbd22eb3808
 import dotenv from "dotenv";
 dotenv.config();
 cloudinary.config({
