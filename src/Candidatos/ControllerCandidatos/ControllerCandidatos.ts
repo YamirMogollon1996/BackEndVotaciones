@@ -1,9 +1,11 @@
 import type { Request, Response } from "express";
 import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
+import { CloudbinaryInstance } from "../../Cloudbinary.js";
+import { SubirImagen } from "../helper/SubirImagen.js";  
+
 export default class ControllerCandidatos {
-
-
+    
     constructor(private readonly candidatoService: SerivicosCandidado) { }
     obtenerCandidatos = async (req: Request, res: Response) => {
         console.log('mogollon osorioe n el obtener Datos')
@@ -14,6 +16,7 @@ export default class ControllerCandidatos {
             console.log(error)
         }
     }
+
     obtenerCandidatoPorId = async (req: Request, res: Response) => {
         try {
             const { id } = req.params
@@ -24,8 +27,11 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req: Request, res: Response) => {  
-        // console.log( req.body)
-        try {
+        try { 
+            const   uploader   =       await  SubirImagen(  req.file?.buffer! )
+    
+        if ( !req.file) throw new Error('necesita enviar una imagen ')   
+    
             let modeloData = new ModeloCandidto(
                 req.body.nombre,
                 req.body.apellido,
@@ -34,14 +40,12 @@ export default class ControllerCandidatos {
                 req.body.voto,
                 req.body.activo
             )  
-            // console.log( modeloData)  
-
-            await this.candidatoService.create( modeloData ,req.file?.path!)
+            console.log(modeloData)
+            await this.candidatoService.create( modeloData  , uploader.secure_url )
+        
             return res.send({
-                msg: 'se creo el candidadto'
+                msg: 'se creo el candidadto con foto'
             })
-
-
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(400).json({ message: error.message });

@@ -9,4 +9,5 @@ cloudinary .config({
 })
 
 
-export const CloudbinaryInstance  = cloudinary   
+export const CloudbinaryInstance  = cloudinary    
+
