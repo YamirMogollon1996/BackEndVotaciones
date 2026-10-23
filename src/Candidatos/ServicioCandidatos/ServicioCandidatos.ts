@@ -11,8 +11,6 @@ export interface RepositorioCandidatos<T> {
     update(id: number, datos: Partial<T>): void
     delete(id: number): boolean | Promise<boolean>;
 }
-
-
 export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
     async create(datos: ModeloCandidto, path?: string) {
         try {
