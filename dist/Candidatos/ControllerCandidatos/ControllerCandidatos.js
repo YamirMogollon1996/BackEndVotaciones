@@ -32,7 +32,7 @@ export default class ControllerCandidatos {
             const uploader = await SubirImagen(req.file?.buffer);
             if (!req.file)
                 throw new Error('necesita enviar una imagen ');
-            let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.voto, req.body.activo);
+            let modeloData = new ModeloCandidto(req.body.nombre, req.body.apellido, req.body.partido, req.file?.path, req.body.anio, req.body.voto, req.body.activo);
             await this.candidatoService.create(modeloData, uploader.secure_url);
             return res.send({
                 msg: 'se creo el candidadto con foto'

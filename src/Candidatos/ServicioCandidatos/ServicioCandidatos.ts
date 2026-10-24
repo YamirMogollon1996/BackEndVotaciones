@@ -2,8 +2,6 @@ import { CloudbinaryInstance } from "../../Cloudbinary.js";
 import { AppDataSource } from "../../db/db.js";
 import { Candidato } from "../Entities/Entitites.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js"
-
-
 export interface RepositorioCandidatos<T> {
     create(datos: ModeloCandidto): void
     findAll(): T[] | Promise<T[]>;
@@ -11,7 +9,8 @@ export interface RepositorioCandidatos<T> {
     update(id: number, datos: Partial<T>): void
     delete(id: number): boolean | Promise<boolean>;
 }
-export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
+export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {  
+    
     async create(datos: ModeloCandidto, path?: string) {
         try {
             let RepositorioCan = AppDataSource.getRepository(Candidato)
