@@ -1,6 +1,6 @@
 import streamifier from "streamifier"
-import { v2 as cloudbinary } from "cloudinary"
-import type { UploadApiErrorResponse, UploadApiResponse } from "cloudinary"
+import { v2 as cloudbinary } from "cloudinary"   
+import type { UploadApiErrorResponse, UploadApiResponse } from "cloudinary"  
 
 export const SubirImagen = (Buffer: Buffer): Promise<UploadApiResponse> => {
     return new Promise((resolve, reject) => {
@@ -12,8 +12,6 @@ export const SubirImagen = (Buffer: Buffer): Promise<UploadApiResponse> => {
                 crop: "scale"
             }
         },
-
-
             (error: UploadApiErrorResponse | undefined,
                 results: UploadApiResponse | undefined) => {
                 if (error) {
@@ -28,5 +26,4 @@ export const SubirImagen = (Buffer: Buffer): Promise<UploadApiResponse> => {
         )
         streamifier.createReadStream(Buffer).pipe(stream)
     })
-
 }
