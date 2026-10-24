@@ -19,6 +19,7 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
                 activo: datos.activo,
                 apellido: datos.apellido,
                 foto: path!,
+                anio:datos.voto ,
                 nombre: datos.nombre,
                 partido: datos.partido,
                 voto: datos.voto,

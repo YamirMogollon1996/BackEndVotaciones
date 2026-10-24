@@ -7,7 +7,7 @@ export const SubirImagen = (Buffer) => {
             transformation: {
                 width: 500,
                 height: 500,
-                crop: "fill"
+                crop: "scale"
             }
         }, (error, results) => {
             if (error) {

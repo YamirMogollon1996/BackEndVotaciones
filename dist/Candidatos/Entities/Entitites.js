@@ -15,6 +15,7 @@ let Candidato = class Candidato {
     partido;
     foto;
     voto;
+    anio;
     activo;
     createdAt;
     updatedAt;
@@ -43,6 +44,15 @@ __decorate([
     Column({ type: "int", default: 0 }),
     __metadata("design:type", Number)
 ], Candidato.prototype, "voto", void 0);
+__decorate([
+    Column({
+        name: 'anio',
+        type: 'int',
+        nullable: true,
+        default: null,
+    }),
+    __metadata("design:type", Number)
+], Candidato.prototype, "anio", void 0);
 __decorate([
     Column({ default: true, type: 'boolean' }),
     __metadata("design:type", Boolean)

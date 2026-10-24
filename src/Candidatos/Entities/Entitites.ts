@@ -24,8 +24,15 @@ export class Candidato {
     foto!: string;
 
     @Column({ type: "int", default: 0 })
-    voto!: number;  
+    voto!: number;   
 
+    @Column({
+      name: 'anio',
+      type:'int',
+      nullable: true,
+      default: null,
+    })
+    anio!:  number
 
     @Column({ default: true  , type:'boolean'})
     activo!: boolean;

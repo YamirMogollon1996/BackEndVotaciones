@@ -27,6 +27,7 @@ export default class ControllerCandidatos {
         }
     };
     crearCandidato = async (req: Request, res: Response) => {  
+        
         try { 
         const   uploader   =       await  SubirImagen(  req.file?.buffer! )
         if ( !req.file) throw new Error('necesita enviar una imagen ')   
@@ -47,7 +48,9 @@ export default class ControllerCandidatos {
                 return res.status(400).json({ message: error.message });
             }
             return res.status(500).send('Error inesperado');
-        }
+        } 
+
+
     }
 
 

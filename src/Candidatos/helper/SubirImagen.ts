@@ -9,9 +9,11 @@ export const SubirImagen = (Buffer: Buffer): Promise<UploadApiResponse> => {
             transformation: {
                 width: 500,
                 height: 500,
-                crop: "fill"
+                crop: "scale"
             }
         },
+
+
             (error: UploadApiErrorResponse | undefined,
                 results: UploadApiResponse | undefined) => {
                 if (error) {
