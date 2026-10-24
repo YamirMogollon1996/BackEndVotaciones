@@ -3,7 +3,6 @@ import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js"
 import ControllerCandidatos from "../ControllerCandidatos/ControllerCandidatos.js"
 export let ExpressRouter = Express.Router()
 let RouterCandidatos = new ControllerCandidatos(new SerivicosCandidado())
-
 import { multerdatos } from "../../helpers/SubidaFotos.js"
 
 ExpressRouter.post('/create',multerdatos.single('foto'),RouterCandidatos.crearCandidato)

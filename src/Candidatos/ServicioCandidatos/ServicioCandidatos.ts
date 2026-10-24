@@ -24,7 +24,6 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
                 voto: datos.voto,
             })
             await RepositorioCan.save(da)
-
         } catch (error) {
             console.log(error)
         }
