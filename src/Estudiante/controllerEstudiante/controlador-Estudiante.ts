@@ -1,13 +1,13 @@
 import Express from "express"
 import { ServiciosEstudiante } from "../servicios/Estudiante-servicios.js"
 import type { Request, Response } from "express"
-import { ValidateDatos } from "../entities/dto/dtodni.js" 
+import { ValidateDatos } from "../entities/dto/dtodni.js"
 
-export class ControllerUsuario {   
+export class ControllerUsuario {
     constructor(private readonly ServiciosSenior: ServiciosEstudiante) { }
     BuscarDatos = async (req: Request, res: Response) => {
-        const { dni } = req.body       
-        let validaciones = ValidateDatos(dni)        
+        const { dni } = req.body
+        let validaciones = ValidateDatos(dni)
         if (Object.values(validaciones).length > 0) {
             return res.send({
                 msg: validaciones
@@ -31,12 +31,12 @@ export class ControllerUsuario {
 
 
     async createUsuario() {
-    
+
     }
 
     ChangueVoto = async (req: Request, res: Response) => {
-        try {  
-       
+        try {
+
             const { dni } = req.body
             let validaciones = ValidateDatos(dni)
 
@@ -57,12 +57,26 @@ export class ControllerUsuario {
     }
     finall = async (req: Request, res: Response) => {
 
-        try { 
+        try {
             let datos = await this.ServiciosSenior.Finall()
-    
+
             return res.send(datos)
         } catch (error) {
             return error
         }
+    }
+
+    
+    TotalesVots = async (req: Request, res: Response) => {
+        try {
+            let Total = await this.ServiciosSenior.TotalVotas
+            return res.send({
+                total: Total
+            })
+        } catch (error) {
+
+            return error
+        }
+
     }
 }

@@ -7,9 +7,9 @@ export const SubirImagen = (Buffer: Buffer): Promise<UploadApiResponse> => {
         const stream = cloudbinary.uploader.upload_stream({
             folder: 'my_app_folder',
             transformation: {
-                width: 500,
-                height: 500,
-                crop: "scale"
+                // width: 300,
+                crop: "limit",
+                quality :'auto'
             }
         },
             (error: UploadApiErrorResponse | undefined,

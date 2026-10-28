@@ -2,10 +2,10 @@ import type { Request, Response } from "express";
 import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js";
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 import { CloudbinaryInstance } from "../../Cloudbinary.js";
-import { SubirImagen } from "../helper/SubirImagen.js";  
+import { SubirImagen } from "../helper/SubirImagen.js";     
 
-export default class ControllerCandidatos {
-    
+
+export default class ControllerCandidatos { 
     constructor(private readonly candidatoService: SerivicosCandidado) { }
     obtenerCandidatos = async (req: Request, res: Response) => {
         console.log('mogollon osorioe n el obtener Datos')
