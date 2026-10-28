@@ -42,4 +42,22 @@ appRouter.get('/todos', UserController.finall);
  *         description: El estudiante ya votó
  */
 appRouter.post('/addVoto', UserController.ChangueVoto);
+/**
+ * @openapi
+ * /estudiantes/totalvotos:
+ *   get:
+ *     summary: totalEstudiantes
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Voto registrado correctamente
+ *       400:
+ *         description: El estudiante ya votó
+ */
+appRouter.get('/totalvotos', UserController.TotalesVots);
 export { appRouter };

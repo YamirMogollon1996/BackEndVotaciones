@@ -34,4 +34,8 @@ export class ServiciosEstudiante {
     Finall = async () => {
         return await AppDataSource.getRepository(Estudiante).find();
     };
+    TotalVotas = async () => {
+        return await AppDataSource.getRepository(Estudiante)
+            .createQueryBuilder('e').where('e.voto =  :voto', { voto: 1 }).getCount();
+    };
 }

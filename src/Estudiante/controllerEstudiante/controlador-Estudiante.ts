@@ -65,14 +65,11 @@ export class ControllerUsuario {
             return error
         }
     }
-
-    
     TotalesVots = async (req: Request, res: Response) => {
         try {
-            let Total = await this.ServiciosSenior.TotalVotas
-            return res.send({
-                total: Total
-            })
+            let Total = await this.ServiciosSenior.TotalVotas()
+            return res.send({  totalvotos : Total
+             })
         } catch (error) {
 
             return error

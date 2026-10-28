@@ -25,6 +25,13 @@ export class SerivicosCandidado {
         let datos = await AppDataSource.getRepository(Candidato).find();
         return datos;
     }
+    async findAllConTotalVotos() {
+        const candidatos = await AppDataSource.getRepository(Candidato)
+            .createQueryBuilder('c')
+            .select(['c.nombre', 'c.voto'])
+            .getMany();
+        return candidatos;
+    }
     async findById(id) {
         let Repo = await AppDataSource.getRepository(Candidato).findOne({
             where: {

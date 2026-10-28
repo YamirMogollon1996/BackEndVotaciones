@@ -61,4 +61,13 @@ export default class ControllerCandidatos {
         // await this.candidatoService.eliminarCandidato(req.params.id);
         // return res.status(204).send();
     };
+    TotalVotos = async (req, res) => {
+        try {
+            let datos = await this.candidatoService.findAllConTotalVotos();
+            return res.send(datos);
+        }
+        catch (error) {
+            return error;
+        }
+    };
 }

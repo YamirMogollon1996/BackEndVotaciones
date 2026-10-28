@@ -60,4 +60,14 @@ export class ControllerUsuario {
             return error;
         }
     };
+    TotalesVots = async (req, res) => {
+        try {
+            let Total = await this.ServiciosSenior.TotalVotas();
+            return res.send({ totalvotos: Total
+            });
+        }
+        catch (error) {
+            return error;
+        }
+    };
 }

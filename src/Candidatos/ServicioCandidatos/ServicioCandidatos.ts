@@ -32,6 +32,18 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         let datos = await AppDataSource.getRepository(Candidato).find()
         return datos
     }
+   
+    
+    async findAllConTotalVotos() {
+        const candidatos = await AppDataSource.getRepository(Candidato)
+                        .createQueryBuilder('c')
+                        .select(['c.nombre','c.voto'])
+                        .getMany()
+        return candidatos
+    } 
+
+
+
     async findById(id: number): Promise<Candidato | null> {
         let Repo = await AppDataSource.getRepository(Candidato).findOne({
             where: {
@@ -50,5 +62,8 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
     }
     delete(id: number): boolean | Promise<boolean> {
         throw new Error("Method not implemented.");
-    }
+    } 
+
+
+
 }
