@@ -3,9 +3,9 @@ import { SerivicosCandidado } from "../ServicioCandidatos/ServicioCandidatos.js"
 import { ModeloCandidto } from "../Entities/ModeloCandidadto.js";
 import { CloudbinaryInstance } from "../../Cloudbinary.js";
 import { SubirImagen } from "../helper/SubirImagen.js";
+
+
 export default class ControllerCandidatos {
-
-
     constructor(private readonly candidatoService: SerivicosCandidado) { }
     obtenerCandidatos = async (req: Request, res: Response) => {
         console.log('mogollon osorioe n el obtener Datos')
@@ -16,7 +16,6 @@ export default class ControllerCandidatos {
             console.log(error)
         }
     }
-    
     obtenerCandidatoPorId = async (req: Request, res: Response) => {
         try {
             const { id } = req.params
@@ -65,8 +64,7 @@ export default class ControllerCandidatos {
         }
     };
     eliminarCandidato = async (req: Request, res: Response) => {
-        // await this.candidatoService.eliminarCandidato(req.params.id);
-        // return res.status(204).send();
+
     };
     TotalVotos = async (req: Request, res: Response) => {
         try {

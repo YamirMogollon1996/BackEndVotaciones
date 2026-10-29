@@ -58,8 +58,6 @@ export default class ControllerCandidatos {
         }
     };
     eliminarCandidato = async (req, res) => {
-        // await this.candidatoService.eliminarCandidato(req.params.id);
-        // return res.status(204).send();
     };
     TotalVotos = async (req, res) => {
         try {

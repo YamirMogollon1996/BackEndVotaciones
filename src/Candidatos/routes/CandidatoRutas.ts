@@ -11,4 +11,4 @@ ExpressRouter.post('/create',multerdatos.single('foto'),RouterCandidatos.crearCa
 ExpressRouter.get('/todos', RouterCandidatos.obtenerCandidatos)
 ExpressRouter.post('/find', RouterCandidatos.obtenerCandidatoPorId)
 ExpressRouter.get('/totalvotosNombreVoto' ,  RouterCandidatos.TotalVotos ) 
-ExpressRouter.post('/actualizar/:id', RouterCandidatos.actualizarCandidato)
+ExpressRouter.get('/actualizar/:id', RouterCandidatos.actualizarCandidato)
