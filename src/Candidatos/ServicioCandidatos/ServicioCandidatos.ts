@@ -52,6 +52,8 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         })
         return Repo
     }
+    
+    
     async update(id: number, datos?: Partial<Candidato>):
         Promise<Candidato | Promise<Candidato | null>> {
         let Encontrado = await this.findById(id)
@@ -59,7 +61,10 @@ export class SerivicosCandidado implements RepositorioCandidatos<Candidato> {
         Encontrado.voto!! ++
         await AppDataSource.manager.save(Encontrado)
         return Encontrado
-    }
+    }    
+
+
+
     delete(id: number): boolean | Promise<boolean> {
         throw new Error("Method not implemented.");
     } 

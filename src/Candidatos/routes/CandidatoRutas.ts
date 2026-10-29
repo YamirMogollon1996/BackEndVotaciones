@@ -10,4 +10,5 @@ import { multerdatos } from "../../helpers/SubidaFotos.js"
 ExpressRouter.post('/create',multerdatos.single('foto'),RouterCandidatos.crearCandidato)
 ExpressRouter.get('/todos', RouterCandidatos.obtenerCandidatos)
 ExpressRouter.post('/find', RouterCandidatos.obtenerCandidatoPorId)
-ExpressRouter.get('/totalvotosNombreVoto' ,  RouterCandidatos.TotalVotos )
+ExpressRouter.get('/totalvotosNombreVoto' ,  RouterCandidatos.TotalVotos ) 
+ExpressRouter.post('/actualizar/:id', RouterCandidatos.actualizarCandidato)

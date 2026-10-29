@@ -9,7 +9,10 @@ import { appRouter } from "./Estudiante/routes/routes.js"
 import { swaggerDocs } from "./swager.js"
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js"
 import dotenv from "dotenv"
-import cors from 'cors'
+import cors from 'cors' 
+import { alumnos } from "./Data/data.js" 
+// import {  Estudiante }  from "../src/Estudiante/entities/Entities.js" 
+
 
 dotenv.config()
 export class Boostrap {
@@ -30,10 +33,16 @@ export class Boostrap {
         try {
             await this.app.listen(this.port, () => {
                 console.log('Corriendo en el puerto ', this.port)
-            })
-            AppDataSource.initialize().then(() => {
+            }) 
+
+            let GetRepootirot  =  AppDataSource.getRepository(Estudiante)
+            AppDataSource.initialize().then(() => {  
+                console.log('se iniciandando -->')   
+        
+
+
             }).catch(() => {
-                console.log('error al iinciar')
+                console.log('error al iinciar')  
             })
             console.log('Base de datos Conectada!!!!!!!!!!')
         } catch (error) {

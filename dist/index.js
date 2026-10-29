@@ -9,6 +9,8 @@ import { swaggerDocs } from "./swager.js";
 import { ExpressRouter } from "./Candidatos/routes/CandidatoRutas.js";
 import dotenv from "dotenv";
 import cors from 'cors';
+import { alumnos } from "./Data/data.js";
+// import {  Estudiante }  from "../src/Estudiante/entities/Entities.js" 
 dotenv.config();
 export class Boostrap {
     app;
@@ -29,7 +31,9 @@ export class Boostrap {
             await this.app.listen(this.port, () => {
                 console.log('Corriendo en el puerto ', this.port);
             });
+            let GetRepootirot = AppDataSource.getRepository(Estudiante);
             AppDataSource.initialize().then(() => {
+                console.log('se iniciandando -->');
             }).catch(() => {
                 console.log('error al iinciar');
             });
